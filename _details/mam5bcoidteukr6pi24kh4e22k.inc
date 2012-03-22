@@ -1,3 +1,0 @@
-<?
-$details = "Muddy River confirmed"
-?>
