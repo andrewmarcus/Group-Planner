@@ -103,7 +103,10 @@ class PMember {
     fwrite($fh, "<" . "?\n" . "\$members['" . $this->key . "'] = array(");
     foreach ($this as $k => $v) {
       if ($k != 'old_key') {
-        fwrite($fh, "  '$k' => '$v',\n");
+        $v = preg_replace('#\r?\n#', '\\n', $v);
+        $v = str_replace('"', '\"', $v);
+        
+        fwrite($fh, "  '$k' => \"$v\",\n");
       }
     }
     fwrite($fh, ");\n" . "?" . ">");
@@ -133,7 +136,9 @@ class PMember {
   public function asJson() {
   	$arr = array();
   	foreach ($this as $k => $v) {
-  		$arr[] = "    $k : '$v'";
+      $v = preg_replace('#\r?\n#', '\\n', $v);
+      $v = str_replace('"', '\"', $v);
+  		$arr[] = "    '$k' : \"$v\"";
     }
   	return "{\n" . implode(",\n", $arr) . "}";
   }
