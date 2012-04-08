@@ -188,7 +188,7 @@ function printEvent($dateView, $title, $event) {
   </div>
   <? if (!empty($location)) : ?>
     <? $mapLink = "http://maps.google.com/maps?f=q&hl=en&q=" . urlencode($location); ?>
-    <div class="location"><? echo format($location); ?>&nbsp;[<a target="_blank" href="<? echo $mapLink; ?>">Map It]</div>
+    <div class="location"><? echo format($location); ?>&nbsp;[<a target="_blank" href="<? echo $mapLink; ?>">Map It</a>]</div>
   <? endif; ?>
   <? if (!empty($details)) : ?>
     <div class="description" id="<? echo $div_id ?>"><? echo formatDescription($details); ?></div>

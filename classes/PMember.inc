@@ -19,7 +19,9 @@ class PMember {
       $this->key = $key;
     }
     foreach ($array as $key => $val) {
-      $this->$key = $val;
+      if (!empty($val)) {
+        $this->$key = $val;
+      }
     }
   }
   
@@ -104,8 +106,8 @@ class PMember {
     foreach ($this as $k => $v) {
       if ($k != 'old_key') {
         $v = preg_replace('#\r?\n#', '\\n', $v);
-        $v = str_replace('"', '\"', $v);
-        
+        $v = str_replace("'", "\\'", $v);
+      
         fwrite($fh, "  '$k' => \"$v\",\n");
       }
     }
@@ -136,9 +138,9 @@ class PMember {
   public function asJson() {
   	$arr = array();
   	foreach ($this as $k => $v) {
-      $v = preg_replace('#\r?\n#', '\\n', $v);
-      $v = str_replace('"', '\"', $v);
-  		$arr[] = "    '$k' : \"$v\"";
+  	  $v = preg_replace('#\r?\n#', '\\n', $v);
+  	  $v = str_replace("'", "\\'", $v);
+  		$arr[] = "    $k : '$v'";
     }
   	return "{\n" . implode(",\n", $arr) . "}";
   }
