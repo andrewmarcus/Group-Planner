@@ -80,29 +80,29 @@ if (!$user->isLoggedIn()) {
   <!-- Tab Bar -->
   <div id="mainTabContainer" dojoType="dijit.layout.TabContainer" layoutAlign="client">
 	
-	<!-- My Events Tab -->
-	<div dojoType="dijit.layout.ContentPane" title="My Events" selected="true">
-	  <div id="myevents"></div>
-	</div>
+    <!-- My Events Tab -->
+    <div dojoType="dijit.layout.ContentPane" title="My Events" selected="true">
+      <div id="myevents"></div>
+    </div>
 
     <!-- Events Tab -->
     <div id="eventTab" dojoType="dijit.layout.LayoutContainer" 
-	        style="width: 100%; height: 100%; padding: 0; margin: 0; border: 0; overflow: auto" 
-	        title="Event Details">
+	       style="width: 100%; height: 100%; padding: 0; margin: 0; border: 0; overflow: auto" 
+	       title="Event Details">
       <div dojoType="dijit.layout.ContentPane" layoutAlign="left" style="width: 400px; height: 100%; overflow: auto">
         <div id="event-list"></div>
       </div>
       <div dojoType="dijit.layout.ContentPane" layoutAlign="client">
         <div id="event"></div>
       </div>
-	  <div dojoType="dijit.layout.ContentPane" layoutAlign="right" style="width: 130px; height: 100%px; overflow: auto">
-	  	<div id="event-total"></div>
-	  </div>
+	    <div dojoType="dijit.layout.ContentPane" layoutAlign="right" style="width: 130px; height: 100%px; overflow: auto">
+	  	  <div id="event-total"></div>
+	    </div>
     </div>
 	
     <!-- Members Tab -->
     <div dojoType="dijit.layout.ContentPane" title="Members">
-	  <div id="member-list"></div>
+      <div id="member-list"></div>
     </div>
 		
   </div>
@@ -193,7 +193,7 @@ if (!$user->isLoggedIn()) {
   </form>
 </div>
 <div style="position: absolute; top: 0px; left: 0px; padding: 5px; font-size: 0.9em;">
-  <a href="http://www.google.com/calendar/embed?src=<? echo $cal; ?>&ctz=America/New_York">View Google Calendar</a>
+  <a target="_blank" href="http://www.google.com/calendar/embed?src=<? echo PCalendar::instance()->calendar; ?>&ctz=America/New_York">View Google Calendar</a>
 </div>
 <div style="position: absolute; top: 0px; right: 0px; padding: 5px; font-size: 0.9em; z-index: 0">
 <?

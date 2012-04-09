@@ -19,27 +19,27 @@ session_write_close();
   </style>
 </head>
 <body class="tundra">
-  <div style="text-align: center">
-    <a href="<? echo $styles['main_site']; ?>"><img src="<? echo "$BASE/../${styles['main_logo']}" ?>" border="0"></a><br>
+<div style="text-align: center">
+  <a href="<? echo $styles['main_site']; ?>"><img src="<? echo "$BASE/../${styles['main_logo']}" ?>" border="0"></a><br>
 	<h2 style="text-align: center"><? echo $styles['name']; ?> Event Planner</h2>
-    <p>This site requires Javascript to be enabled.  
-	For a simpler version, view the <a href="<? echo "$BASE/mobile/" ?>">mobile site</a>.</p>
+  <p>This site requires Javascript to be enabled.  
+	  For a simpler version, view the <a href="<? echo "$BASE/mobile/" ?>">mobile site</a>.</p>
 	
 	<table cellpadding="0" cellspacing="0" border="0" align="center">
 	  <tr>
 	    <td>
-          <form method="post" action="action/login.php" id="loginForm">
-      <table cellpadding="5" cellspacing="0" border="0">
-        <tr>
-          <td colspan="2" class="titleBar">Login</td>
-        </tr>
+        <form method="post" action="action/login.php" id="loginForm">
+        <table cellpadding="5" cellspacing="0" border="0">
+          <tr>
+            <td colspan="2" class="titleBar">Login</td>
+          </tr>
 <?
 	$reason = $user->getLoginFailedReason();
 	if (!empty($reason)) {
 ?>
-		<tr>
-		  <td colspan="2" align="center" class="failed-reason">* <? echo $reason ?></td>
-		</tr>
+          <tr>
+		        <td colspan="2" align="center" class="failed-reason">* <? echo $reason ?></td>
+		      </tr>
 <?
 	}
 ?>
@@ -65,6 +65,6 @@ session_write_close();
 		</td>
 	  </tr>
 	</table>
-  </div>
+</div>
 </body>
 </html>
