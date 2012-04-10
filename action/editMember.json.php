@@ -33,9 +33,13 @@
 	$member->phone = $values['phone'];
 	$member->cell = $values['cell'];
 	$member->address = $values['address'];
-	$member->admin = empty($values['admin']) ? false : true;
-	$member->inactive = empty($values['inactive']) ? false : true;
 	
+	if (isset($values['admin'])) {
+  	$member->admin = !empty($values['admin']);
+  }
+  if (isset($values['inactive')) {
+  	$member->inactive = !empty($values['inactive']);
+  }	
 	$member->save();
 	
 	echo $member->asJson();

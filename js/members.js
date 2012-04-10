@@ -106,8 +106,12 @@ members.showEditDialog = function (name, callback) {
 		addressBox.value = data.address;
 		memberKeyBox.value = data.key;
 		
-		adminBox.checked = (data.admin ? true : false);
-		inactiveBox.checked = (data.inactive ? true : false);
+		if (adminBox) {
+  		adminBox.checked = (data.admin ? true : false);
+    }
+    if (inactiveBox) {
+  		inactiveBox.checked = (data.inactive ? true : false);
+    }
 		
 		dialog.show();
 	});
