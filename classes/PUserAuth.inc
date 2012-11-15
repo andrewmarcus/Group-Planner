@@ -77,7 +77,7 @@ class PUserAuth {
 	 * Store the login information in a cookie
 	 */
 	public function saveLogin($email) {
-		setcookie("login-email", $email, time()+60*60*24*90, "/");
+		setcookie("login-email", $email, strtotime('+90 days'), "/");
 	}
 	
 	/**
@@ -91,9 +91,8 @@ class PUserAuth {
 	 * Attempt to login using cookies
 	 */
 	public function loginWithCookies() {
-		global $_COOKIE;
 		if (isset($_COOKIE["login-email"])) {
-			$success = $this->login();			
+			$success = $this->login();
 			return $success;
 		}
 		return false;
@@ -105,6 +104,11 @@ class PUserAuth {
 	 */
 	public function login() {
 		global $_REQUEST;
+		
+		if (isset($_COOKIE['login-email'])) {
+		  $email = $_COOKIE['login-email'];
+		  $cookie = TRUE;
+		}
 		
 		// Reset all the fields
 		$this->logout();
@@ -120,7 +124,9 @@ class PUserAuth {
 		// Passwords are not used, but for security the password field should be empty
 		$password = $_REQUEST["password"];
 		if (empty($password)) {
-			$email = $_REQUEST["login-email"];
+		  if (!empty($_REQUEST['login-email'])) {
+  			$email = $_REQUEST["login-email"];
+  		}
 			
 			// The email address must be set
 			if (empty($email)) {
@@ -142,7 +148,7 @@ class PUserAuth {
 					$this->admin = !empty($member->admin);
 					
 					// Save the email address in a cookie, if requested to do so
-					if (isset($_REQUEST["remember"])) {
+					if (isset($_REQUEST["remember"]) || $cookie) {
 						$this->saveLogin($email);
 					}
 					$this->store();

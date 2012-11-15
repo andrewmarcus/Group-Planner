@@ -141,6 +141,10 @@ tr.tentative, tr.tentative a {
 	color: <? echo $styles['a_tentative']; ?>;
 }
 
+#attendeeTable td {
+  padding: 5px;
+}
+
 a.action {
 	font-size: 0.8em;
 }
@@ -282,4 +286,8 @@ div#loading {
 #loginForm .failed-reason {
 	font-size: 0.9em;
 	color: #ff0000;
+}
+
+#loginForm table td {
+  padding: 5px;
 }

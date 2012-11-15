@@ -44,7 +44,7 @@ session_write_close();
 	}
 ?>
         <tr>
-          <td><label for="email">Email: </label></td>
+          <td><label for="login-email">Email: </label></td>
           <td><input class="dojoTextBox dijitTextBox" type="text" name="login-email"/></td>
         </tr>
         <tr>
@@ -52,7 +52,7 @@ session_write_close();
           <td><input class="dojoTextBox dijitTextBox" type="password" name="password"></td>
         </tr>
 		<tr>
-		  <td colspan="2">Remember Me: <input type="checkbox" class="dojoCheckBox" name="remember" value="true"></input></td>
+		  <td colspan="2">Remember Me: <input type="checkbox" class="dojoCheckBox" name="remember" value="1"></input></td>
 		</tr>
         <tr>
           <td align="center" colspan="2">

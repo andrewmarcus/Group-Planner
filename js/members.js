@@ -153,7 +153,7 @@ members.addNewMember = function () {
 	var dialog = dijit.byId("member_dialog");			
 
 	var form = dojo.query("form", dialog.domNode)[0];
-	dojo.xhrGet ({
+	dojo.xhrPost ({
 		url: "action/editMember.json.php",
 		handleAs: "json",
 		load: dojo.hitch(dialog, function(data) {

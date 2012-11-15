@@ -76,7 +76,7 @@ if ($endDate["timestamp"] != $startDate["timestamp"] + 60*60*24 || $startDate["h
     <? echo $location ? '<i>' . htmlspecialchars($location) . "</i> &nbsp; [<a href='$mapLink'>Map It</a>]" : "<i>No location yet</i>" ?>
   </p>
   <p>
-    <? echo $details ? str_replace("\n", "<br/>", htmlspecialchars($details)) : "<i>No details yet</i>" ?>
+    <? echo $details ? str_replace("\n", "<br/>", $details) : "<i>No details yet</i>" ?>
   </p>  
   <hr/>
   <p><em>Information for members:</em></p>
@@ -86,7 +86,7 @@ if ($endDate["timestamp"] != $startDate["timestamp"] + 60*60*24 || $startDate["h
       <button dojoType="dijit.form.Button" onClick="javascript:events.setPrivateDetails()">Save</button>
     </p>
   <? elseif (!empty($priv_details)) : ?>
-	  <p><? echo stripslashes(str_replace("\n", '<br/>', htmlspecialchars($priv_details))); ?></p>
+	  <p><? echo stripslashes(str_replace("\n", '<br/>', $priv_details)); ?></p>
   <? endif; ?>
 </div>
 <p>

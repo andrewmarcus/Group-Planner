@@ -37,7 +37,7 @@
 	if (isset($values['admin'])) {
   	$member->admin = !empty($values['admin']);
   }
-  if (isset($values['inactive')) {
+  if (isset($values['inactive'])) {
   	$member->inactive = !empty($values['inactive']);
   }	
 	$member->save();
